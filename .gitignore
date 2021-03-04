@@ -1,0 +1,8 @@
+/-.json
+/.cache
+/.vscode
+/build
+/imgui.ini
+/myFile
+/server_db.session.sql
+/test_name.session.sql
