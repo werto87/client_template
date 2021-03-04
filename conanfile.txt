@@ -1,13 +1,15 @@
 [requires]
 boost/1.75.0
-fmt/7.0.3
+# fmt/7.0.3
 imgui-sfml/2.1@bincrafters/stable
-magic_enum/0.6.6
-#soci/4.0.1
+# magic_enum/0.6.6
+confu_boost/0.0.1@confu_boost/0.0.1
+confu_soci/0.2.0@confu_soci/0.2.0  #from https://github.com/werto87/conan_confu_soci
 catch2/2.13.1
-confu_soci/0.0.1@confu_soci/0.0.1  #from https://github.com/werto87/conan_confu_soci
 [generators]
 cmake
 [options]
-soci:with_sqlite3=True
-soci:with_boost=True
+# soci:with_sqlite3=True
+# soci:with_boost=True
+#sfml:audio=False
+#flac:use_asm= False

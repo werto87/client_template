@@ -1,8 +1,6 @@
 #ifndef C5B152C0_B968_4BBC_B1F9_5823AA8FAD87
 #define C5B152C0_B968_4BBC_B1F9_5823AA8FAD87
-#include "src/common/pod.hxx"
 #include "src/util/util.hxx"
-#include <SFML/Graphics/Color.hpp>
 #include <boost/asio/awaitable.hpp>
 #include <boost/asio/detached.hpp>
 #include <boost/beast/core/buffers_to_string.hpp>
@@ -35,28 +33,9 @@ public:
 
   boost::asio::awaitable<void> connect ();
 
-  void start ();
-
-  void stop ();
-
-  boost::asio::awaitable<void> updateBoard ();
-
   boost::asio::awaitable<void> sendMsg (std::string msg);
-
-  std::vector<data::BoardElement> const &getResult () const;
-
-  std::string const &getPlayerId () const;
-
-  int getPlayerLooksInDirection () const;
-
-  std::vector<data::Player> const &getPlayers () const;
 
 private:
   boost::beast::websocket::stream<boost::beast::tcp_stream> ws;
-  std::vector<data::BoardElement> myBoard{};
-  bool shouldSendRequest = false;
-  std::string playerId{};
-  std::vector<data::Player> players{}; // all players the player can see including him self
-  Direction playerLooksInDirection = Direction::Up;
 };
 #endif /* C5B152C0_B968_4BBC_B1F9_5823AA8FAD87 */
