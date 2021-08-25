@@ -58,7 +58,7 @@ main ()
 {
   try
     {
-      boost::asio::io_context io_context (1);
+      boost::asio::io_context io_context{};
       boost::asio::signal_set signals (io_context, SIGINT, SIGTERM);
       signals.async_wait ([&] (auto, auto) { io_context.stop (); });
       boost::asio::co_spawn (io_context, boost::bind (ui, std::ref (io_context)), boost::asio::detached);

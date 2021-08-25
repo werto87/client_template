@@ -44,6 +44,8 @@ conan_basic_setup(TARGETS)
 set(TARGET_NAME project)
 add_executable(${TARGET_NAME})
 
+# remove this if you want to use more threads
+target_compile_definitions(${TARGET_NAME} PUBLIC BOOST_ASIO_DISABLE_THREADS)
 ######## add sub dir
 add_subdirectory(src) 
 
